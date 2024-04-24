@@ -39,6 +39,7 @@ jobs:
         else
           pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico:." --add-data "github.png:." ondas.py
         fi
+      shell: bash
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
