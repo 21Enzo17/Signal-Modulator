@@ -2,6 +2,7 @@
 
 Este proyecto es un generador de señales digitales que permite visualizar diferentes tipos de codificación de señales, incluyendo NRZ-L, NRZ-I, Manchester, Manchester Diferencial, BFSK, BPSK y BASK.
 
+
 ## Características
 
 - Genera gráficos de señales digitales basados en una secuencia de bits proporcionada por el usuario.
