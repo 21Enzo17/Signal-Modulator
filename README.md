@@ -56,3 +56,14 @@ Este proyecto fue desarrollado con la ayuda de GitHub Copilot, una inteligencia 
 
 ## Licencia
 Este proyecto está licenciado bajo los términos de la licencia MIT.
+
+
+## Contacto
+
+Si tienes alguna pregunta o comentario sobre este proyecto, no dudes en ponerse en contacto conmigo:
+
+- Correo electrónico: [enzo.meneghini@hotmail.com](mailto:enzo.meneghini@hotmail.com)
+- GitHub: [@21Enzo17](https://github.com/21Enzo17)
+- LinkedIn: [Enzo Nicolas Meneghini](https://www.linkedin.com/in/enzo-meneghini/)
+
+Por favor, ten en cuenta que este es un proyecto de código abierto y se proporciona "tal cual", sin garantía de ningún tipo.
