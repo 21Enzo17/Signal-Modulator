@@ -35,14 +35,14 @@ jobs:
     - name: Build executable
       run: |
         if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-          pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico;." --add-data "github.png;." ondas.py
+          pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico;." --add-data "github.png;." --name Modulador_de_Ondas ondas.py
         else
-          pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico:." --add-data "github.png:." ondas.py
+          pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico:." --add-data "github.png:." --name Modulador_de_Ondas ondas.py
         fi
       shell: bash
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
       with:
-        name: ondas-${{ matrix.os }}
+        name: Modulador_de_Ondas-${{ matrix.os }}
         path: dist/*
