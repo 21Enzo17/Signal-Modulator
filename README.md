@@ -43,11 +43,12 @@ Este script está escrito en Python, por lo que necesitarás tener Python instal
 ## Capturas de Pantalla
 ![image](https://github.com/21Enzo17/Signal-Modulator/assets/129308114/c74b2731-bbb7-4396-b8a7-72d4b13246a3)
 
-![image](https://github.com/21Enzo17/Signal-Modulator/assets/129308114/f282d947-fe47-4d1c-b976-b0f1f2483d3f)
+![image](https://github.com/21Enzo17/Signal-Modulator/assets/129308114/b1e11378-2195-4dd2-b9c2-8b610f80db65)
 
 ![image](https://github.com/21Enzo17/Signal-Modulator/assets/129308114/7e2c2c2c-2d63-4968-a6d6-01df36a74e0e)
 
-![image](https://github.com/21Enzo17/Signal-Modulator/assets/129308114/5a51bc63-b15e-4de6-9d28-374009b74d6b)
+![image](https://github.com/21Enzo17/Signal-Modulator/assets/129308114/83380cd0-5eb6-4152-baa1-de91490f1487)
+
 
 
 
