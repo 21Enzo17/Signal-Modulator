@@ -30,3 +30,9 @@ jobs:
     - name: Build executable
       run: |
         pyinstaller --onefile ondas.py
+
+    - name: Upload executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: ondas-${{ matrix.os }}
+        path: dist/*
