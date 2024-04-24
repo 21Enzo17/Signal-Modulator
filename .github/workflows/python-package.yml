@@ -29,7 +29,7 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile ondas.py
+        pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico;." --add-data "github.png;." ondas.py
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
