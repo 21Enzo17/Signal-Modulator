@@ -29,7 +29,11 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico;." --add-data "github.png;." ondas.py
+        if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+          pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico;." --add-data "github.png;." ondas.py
+        else
+          pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico:." --add-data "github.png:." ondas.py
+        fi
 
     - name: Upload executable
       uses: actions/upload-artifact@v2
