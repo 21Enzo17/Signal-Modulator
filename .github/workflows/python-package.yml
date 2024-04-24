@@ -6,6 +6,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: [3.9]
@@ -21,7 +22,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install matplotlib numpy ttkthemes==3.1.0
+        pip install matplotlib numpy
+        if [[ "${{ matrix.os }}" != "macos-latest" ]]; then
+          pip install ttkthemes==3.1.0
+        fi
 
     - name: Install PyInstaller
       run: |
