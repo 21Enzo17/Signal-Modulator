@@ -19,6 +19,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Install gettext on macOS
+      run: |
+        brew install gettext
+        echo "/usr/local/opt/gettext/bin" >> $GITHUB_PATH
+      if: matrix.os == 'macos-latest'
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
