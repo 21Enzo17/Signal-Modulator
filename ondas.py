@@ -7,6 +7,7 @@ import webbrowser
 from tkinter import ttk, font
 from tkinter import filedialog
 from tkinter import messagebox
+from tkinter import PhotoImage
 from ttkthemes import ThemedTk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 
@@ -72,7 +73,10 @@ def save_image():
     filepath = filedialog.asksaveasfilename(defaultextension=".png", initialfile=default_filename, filetypes=[("PNG files", "*.png"), ("PDF files", "*.pdf"), ("SVG files", "*.svg"), ("EPS files", "*.eps")])
     if not filepath:
         return
-    fig.savefig(filepath)
+    try:
+        fig.savefig(filepath)
+    except Exception as e:
+        messagebox.showerror("Error", f"No se pudo guardar la imagen: {e}")
 
 # Función para dibujar la señal
 def draw():
@@ -134,8 +138,8 @@ try:
         else:
             icon_path = 'icono.xpm'
     root.iconbitmap(icon_path)
-except Exception:
-    pass  # Si no se puede establecer el icono, simplemente lo ignoramos y continuamos
+except Exception as e:
+    print(f"Error setting icon: {e}. Continuing without icon.")
 
 # Configuración del estilo de la aplicación
 style = ttk.Style()
@@ -188,6 +192,24 @@ option_style.pack(side=TOP, anchor=E)
 
 canvas = FigureCanvasTkAgg(plt.figure(), master=canvas_frame)
 canvas.get_tk_widget().pack(fill=BOTH, expand=True)
+
+
+# Carga la imagen
+try:
+    if getattr(sys, 'frozen', False):
+        # Estamos ejecutando en un paquete PyInstaller
+        github_image = PhotoImage(file=os.path.join(sys._MEIPASS, 'github.png'))
+    else:
+        # Estamos ejecutando en un script de Python normal
+        github_image = PhotoImage(file='github.png')
+    # Redimensiona la imagen
+    github_image = github_image.subsample(16, 16)  # Cambia los números para ajustar el tamaño de la imagen
+    # Crea el botón con la imagen y el texto
+    github_button = Button(frame, text="  21Enzo17", image=github_image, compound=LEFT, command=lambda: webbrowser.open_new("https://github.com/yourusername"), font=("Helvetica", 14))
+    github_button.image = github_image  # Guarda una referencia a la imagen para evitar que sea eliminada por el recolector de basura
+    github_button.grid(row=8, column=0, padx=10, pady=10)
+except TclError:
+    pass  # No hacer nada si la imagen no se puede cargar
 
 root.protocol("WM_DELETE_WINDOW", on_closing)
 
