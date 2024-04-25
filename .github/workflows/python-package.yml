@@ -37,7 +37,7 @@ jobs:
         if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
           pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico;." --add-data "github.png;." --name Modulador_de_Ondas ondas.py
         elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
-          pyinstaller --onefile --windowed --icon=icono.icns --add-data "icono.icns;." --add-data "github.png;." --name Modulador_de_Ondas ondas.py
+          pyinstaller --onefile --windowed --icon=icono.icns --add-data "icono.icns:." --add-data "github.png:." --name Modulador_de_Ondas ondas.py
         else
           pyinstaller --onefile --windowed --icon=icono.xpm --add-data "icono.xpm:." --add-data "github.png:." --name Modulador_de_Ondas ondas.py
         fi
