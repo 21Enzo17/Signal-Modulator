@@ -119,9 +119,19 @@ root.minsize(800, 350)
 
 # Configuración del icono de la aplicación
 if getattr(sys, 'frozen', False):
-    icon_path = os.path.join(sys._MEIPASS, 'icono.ico')
+    if sys.platform == 'win32':
+        icon_path = os.path.join(sys._MEIPASS, 'icono.ico')
+    elif sys.platform == 'darwin':
+        icon_path = os.path.join(sys._MEIPASS, 'icono.icns')
+    else:
+        icon_path = os.path.join(sys._MEIPASS, 'icono.xpm')
 else:
-    icon_path = 'icono.ico'
+    if sys.platform == 'win32':
+        icon_path = 'icono.ico'
+    elif sys.platform == 'darwin':
+        icon_path = 'icono.icns'
+    else:
+        icon_path = 'icono.xpm'
 root.iconbitmap(icon_path)
 
 # Configuración del estilo de la aplicación
