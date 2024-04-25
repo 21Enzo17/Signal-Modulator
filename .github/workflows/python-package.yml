@@ -13,7 +13,7 @@ jobs:
             python-version: 3.9
           - os: windows-latest
             python-version: 3.9
-          - os: macos-10.15
+          - os: macos-latest
             python-version: 3.9
 
     steps:
@@ -28,7 +28,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install matplotlib numpy
-        if [[ "${{ matrix.os }}" != "macos-10.15" ]]; then
+        if [[ "${{ matrix.os }}" != "macos-latest" ]]; then
           pip install ttkthemes==3.1.0
         fi
       shell: bash
@@ -41,7 +41,7 @@ jobs:
       run: |
         if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
           pyinstaller --onefile --windowed --icon=icono.ico --add-data "icono.ico;." --add-data "github.png;." --name Modulador_de_Ondas ondas.py
-        elif [[ "${{ matrix.os }}" == "macos-10.15" ]]; then
+        elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
           pyinstaller --onefile --windowed --icon=icono.icns --add-data "icono.icns:." --add-data "github.png:." --name Modulador_de_Ondas ondas.py
         else
           pyinstaller --onefile --windowed --icon=icono.xpm --add-data "icono.xpm:." --add-data "github.png:." --name Modulador_de_Ondas ondas.py
